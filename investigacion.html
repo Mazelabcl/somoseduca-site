@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigación y Benchmark · Somos Educa Consciente</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ===== PAGE-SPECIFIC STYLES ===== */
+    .internal-banner {
+      background: rgba(196,154,90,0.12);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 12px 20px;
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 40px;
+      display: inline-block;
+    }
+
+    .page-header {
+      background: var(--grad-hero);
+      padding: 120px 24px 80px;
+      text-align: center;
+    }
+    .page-header .section-label-light { margin-bottom: 24px; }
+    .page-header h1 {
+      color: #fff;
+      font-size: 42px;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .page-header .page-subtitle {
+      color: rgba(255,255,255,0.75);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    /* Stat grande */
+    .stat-hero-block {
+      background: linear-gradient(135deg, var(--turquoise), var(--gold));
+      border-radius: var(--radius);
+      padding: 48px;
+      text-align: center;
+      margin: 48px 0;
+    }
+    .stat-hero-number {
+      font-size: 52px;
+      font-weight: 700;
+      color: #fff;
+      display: block;
+      line-height: 1.1;
+    }
+    .stat-hero-sub {
+      color: rgba(255,255,255,0.85);
+      font-size: 18px;
+      margin-top: 8px;
+    }
+
+    /* Cards de datos */
+    .data-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .data-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 32px;
+      border-left: 4px solid var(--turquoise);
+    }
+    .data-card .data-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--deepBlue);
+      display: block;
+    }
+    .data-card p { color: var(--textSecondary); margin-top: 8px; font-size: 15px; }
+
+    /* Referentes grid */
+    .referentes-full-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .referente-full-card {
+      background: #fff;
+      border: 1px solid rgba(29,53,87,0.08);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .referente-full-card h3 {
+      font-size: 20px;
+      color: var(--deepBlue);
+      margin-bottom: 12px;
+    }
+    .referente-full-card p { color: var(--textSecondary); font-size: 14px; margin-bottom: 16px; }
+    .referente-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .tag-fortaleza { background: rgba(110,197,192,0.15); color: var(--turquoise); }
+    .tag-oportunidad { background: rgba(196,154,90,0.15); color: var(--gold); }
+    .referente-meta {
+      font-size: 13px;
+      color: var(--textSecondary);
+    }
+    .referente-meta strong { color: var(--deepBlue); display: block; margin-top: 8px; }
+
+    /* Patrones de comunicación */
+    .patrones-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .patron-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px solid rgba(29,53,87,0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+    }
+    .patron-num {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 50%;
+      background: var(--grad-soft);
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .patron-text h4 { font-size: 17px; color: var(--deepBlue); margin-bottom: 6px; }
+    .patron-text p { font-size: 14px; color: var(--textSecondary); }
+
+    /* Sección Biodanza — fondo oscuro */
+    .sec-biodanza {
+      background: var(--deepBlue);
+      padding: 96px 0;
+    }
+    .sec-biodanza .section-container { padding-top: 0; padding-bottom: 0; }
+    .sec-biodanza h2 { color: #fff; margin-bottom: 24px; }
+    .sec-biodanza .biodanza-intro {
+      color: rgba(255,255,255,0.75);
+      font-size: 17px;
+      max-width: 760px;
+      margin-bottom: 48px;
+      font-style: italic;
+    }
+    .oportunidades-teal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .oportunidad-teal-card {
+      border: 2px solid var(--turquoise);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .oportunidad-teal-card .check-icon {
+      color: var(--turquoise);
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .oportunidad-teal-card p { color: rgba(255,255,255,0.85); font-size: 14px; }
+    .oportunidad-teal-card strong { color: var(--turquoise); }
+
+    /* Low-hanging fruits */
+    .fruits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 40px 0;
+    }
+    .fruit-item {
+      background: #fff;
+      border: 1px solid rgba(29,53,87,0.08);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: var(--shadow-card);
+    }
+    .fruit-emoji { font-size: 28px; min-width: 36px; }
+    .fruit-body h4 { font-size: 16px; color: var(--deepBlue); margin-bottom: 6px; }
+    .fruit-body p { font-size: 14px; color: var(--textSecondary); }
+    .fruit-meta {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-end;
+    }
+    .badge-impacto, .badge-esfuerzo {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .badge-impacto { background: rgba(110,197,192,0.2); color: var(--turquoise); }
+    .badge-esfuerzo { background: rgba(196,154,90,0.15); color: var(--gold); }
+
+    /* Back link */
+    .back-link-bar {
+      background: var(--cream);
+      padding: 16px 24px;
+      text-align: center;
+    }
+    .back-link-bar a {
+      color: var(--deepBlue);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 640px) {
+      .page-header h1 { font-size: 28px; }
+      .stat-hero-number { font-size: 36px; }
+      .fruit-meta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">SOMOS EDUCA CONSCIENTE</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#propuesta" class="nav-link">Propuesta</a></li>
+        <li><a href="index.html#programas" class="nav-link">Programas</a></li>
+        <li><a href="index.html#quienes" class="nav-link">Quiénes somos</a></li>
+        <li><a href="investigacion.html" class="nav-link" style="color:var(--turquoise)">Investigación</a></li>
+        <li><a href="index.html#contacto" class="nav-cta btn-primary">Conversemos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HEADER ===== -->
+  <header class="page-header">
+    <span class="section-label-light">Investigación y Benchmark</span>
+    <h1>El estado del arte mundial en educación socioemocional</h1>
+    <p class="page-subtitle">Investigación realizada con Perplexity Deep Research — Abril 2026</p>
+    <div class="internal-banner">
+      Recurso interno · Somos Educa Consciente · No indexado en Google
+    </div>
+    <p style="color:rgba(255,255,255,0.6); font-size:14px; max-width:660px; margin:0 auto;">Esta página contiene el contexto de mercado, benchmarking internacional y oportunidades identificadas para posicionar SEC en el mercado chileno.</p>
+  </header>
+
+  <!-- ===== SECCIÓN 1: EL MERCADO ===== -->
+  <section>
+    <div class="section-container">
+      <span class="section-label">Mercado global</span>
+      <h2>Un mercado en explosión</h2>
+
+      <div class="stat-hero-block">
+        <span class="stat-hero-number">US$1.4B → US$5.3B en 2033</span>
+        <p class="stat-hero-sub">Crecimiento anual compuesto de 17.6% — mercado global de bienestar y mindfulness en educación</p>
+      </div>
+
+      <p style="font-size:17px; color:var(--textSecondary); max-width:780px; margin-bottom:48px;">El mercado global de bienestar y mindfulness en educación está creciendo a una velocidad sin precedentes, impulsado por la crisis post-pandemia de salud mental estudiantil y el reconocimiento creciente de que la educación académica sola no basta.</p>
+
+      <div class="data-cards">
+        <div class="data-card">
+          <span class="data-number">137</span>
+          <p>programas documentados en LATAM y el Caribe</p>
+        </div>
+        <div class="data-card">
+          <span class="data-number">35</span>
+          <p>formas distintas de implementación identificadas en la región</p>
+        </div>
+        <div class="data-card">
+          <span class="data-number">11</span>
+          <p>países europeos con iniciativas activas (proyecto WISE-UP 2025-2028)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECCIÓN 2: REFERENTES ===== -->
+  <section style="background:var(--cream);">
+    <div class="section-container">
+      <span class="section-label">Benchmarking</span>
+      <h2>Los mejores del mundo</h2>
+      <p style="color:var(--textSecondary); margin-bottom:40px; font-size:16px;">Seis organizaciones que lideran el mercado global — sus fortalezas y, más importante, sus brechas.</p>
+
+      <div class="referentes-full-grid">
+
+        <div class="referente-full-card">
+          <h3>CASEL (USA)</h3>
+          <p>El estándar global. Framework de 5 competencias, más de 1 millón de estudiantes. Lidera política educativa en EEUU.</p>
+          <div>
+            <span class="referente-tag tag-fortaleza">Fortaleza</span>
+            <p class="referente-meta">Evidencia científica masiva. Respaldo institucional sin igual.</p>
+            <span class="referente-tag tag-oportunidad" style="margin-top:12px;">Oportunidad para SEC</span>
+            <p class="referente-meta">Su lenguaje es demasiado institucional y frío — no conecta emocionalmente.</p>
+          </div>
+        </div>
+
+        <div class="referente-full-card">
+          <h3>RULER — Yale (USA)</h3>
+          <p>Desarrollado en Yale Center for Emotional Intelligence. Lema: "Emotions matter". El reconocimiento emocional como base del aprendizaje.</p>
+          <div>
+            <span class="referente-tag tag-fortaleza">Fortaleza</span>
+            <p class="referente-meta">Lenguaje emotivo y accesible. Prestigio académico de Yale.</p>
+            <span class="referente-tag tag-oportunidad" style="margin-top:12px;">Oportunidad para SEC</span>
+            <p class="referente-meta">No incorpora el cuerpo ni el movimiento como vehículo de aprendizaje.</p>
+          </div>
+        </div>
+
+        <div class="referente-full-card">
+          <h3>MiSP (UK)</h3>
+          <p>Mindfulness in Schools Project. Charity del Reino Unido. Curricula para alumnos, docentes y padres.</p>
+          <div>
+            <span class="referente-tag tag-fortaleza">Fortaleza</span>
+            <p class="referente-meta">Accesibilidad y recursos concretos para el aula. Modelo de charity escalable.</p>
+            <span class="referente-tag tag-oportunidad" style="margin-top:12px;">Oportunidad para SEC</span>
+            <p class="referente-meta">Sin componente corporal ni Biodanza. Mindfulness sin movimiento.</p>
+          </div>
+        </div>
+
+        <div class="referente-full-card">
+          <h3>WISE-UP (Europa)</h3>
+          <p>2025-2028. 6 países, 70 colegios, foco en bienestar digital. Erasmus+-funded.</p>
+          <div>
+            <span class="referente-tag tag-fortaleza">Fortaleza</span>
+            <p class="referente-meta">Relevancia contemporánea: digital wellness en el centro. Financiamiento europeo.</p>
+            <span class="referente-tag tag-oportunidad" style="margin-top:12px;">Oportunidad para SEC</span>
+            <p class="referente-meta">Sin metodología vivencial ni experiencial. Falta el cuerpo.</p>
+          </div>
+        </div>
+
+        <div class="referente-full-card">
+          <h3>Aulas en Paz (Colombia)</h3>
+          <p>Prevención de violencia en contextos de alta conflictividad. Multicomponente: aula + familia + extraescolar.</p>
+          <div>
+            <span class="referente-tag tag-fortaleza">Fortaleza</span>
+            <p class="referente-meta">Adaptado culturalmente a LATAM. Enfoque sistémico de comunidad.</p>
+            <span class="referente-tag tag-oportunidad" style="margin-top:12px;">Oportunidad para SEC</span>
+            <p class="referente-meta">No usa metodologías corporales. Sin Biodanza ni movimiento consciente.</p>
+          </div>
+        </div>
+
+        <div class="referente-full-card">
+          <h3>HeartMath (USA)</h3>
+          <p>Biofeedback de variabilidad cardíaca. Plataforma WiseHeart para escuelas.</p>
+          <div>
+            <span class="referente-tag tag-fortaleza">Fortaleza</span>
+            <p class="referente-meta">Base neurocientífica sólida. Datos objetivos medibles.</p>
+            <span class="referente-tag tag-oportunidad" style="margin-top:12px;">Oportunidad para SEC</span>
+            <p class="referente-meta">Muy tecnológico — pierde el componente relacional, grupal y comunitario.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECCIÓN 3: PATRONES DE COMUNICACIÓN ===== -->
+  <section>
+    <div class="section-container">
+      <span class="section-label">Comunicación</span>
+      <h2>Lo que hacen bien los líderes del mercado</h2>
+      <p style="color:var(--textSecondary); margin-bottom:40px; font-size:16px;">Seis patrones de comunicación que usan los mejores del mundo — y que SEC puede replicar hoy.</p>
+
+      <div class="patrones-list">
+        <div class="patron-item">
+          <div class="patron-num">1</div>
+          <div class="patron-text">
+            <h4>Hero de una sola frase</h4>
+            <p>Los mejores tienen una sola idea en el hero, no párrafos de explicación. Ejemplo de RULER: <em>"Emotions matter."</em> Simple, directo, memorable.</p>
+          </div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-num">2</div>
+          <div class="patron-text">
+            <h4>Beneficios específicos, no abstractos</h4>
+            <p>No dicen "mejora el bienestar" — dicen "40% menos conflictos en 6 semanas". Los números concretos generan credibilidad inmediata.</p>
+          </div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-num">3</div>
+          <div class="patron-text">
+            <h4>Mensajes distintos por audiencia</h4>
+            <p>Director / Docente / Familia / Estudiante tienen páginas o secciones con mensajes adaptados. Cada uno escucha lo que le importa.</p>
+          </div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-num">4</div>
+          <div class="patron-text">
+            <h4>Testimoniales narrativos</h4>
+            <p>No "este programa es bueno" sino una historia completa: situación → cambio → nuevo estado. El testimonio de la directora de SEC ya funciona así.</p>
+          </div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-num">5</div>
+          <div class="patron-text">
+            <h4>Progresión lógica</h4>
+            <p>El flujo del sitio sigue: awareness → credibilidad → descripción → acción. No mezclan etapas. El visitante se convence antes de llegar al CTA.</p>
+          </div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-num">6</div>
+          <div class="patron-text">
+            <h4>Credenciales narradas</h4>
+            <p>No una lista de logos sino integradas en el relato: "Nuestro equipo lleva 8 años trabajando con colegios en…" La credencial se vive, no se declara.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECCIÓN 4: BIODANZA ===== -->
+  <section class="sec-biodanza">
+    <div class="section-container">
+      <span class="section-label-light">Diferenciación</span>
+      <h2>Por qué Biodanza es el diferenciador más poderoso</h2>
+      <p class="biodanza-intro">"El movimiento Biodanza, a pesar de operar en múltiples países y tener décadas de historia, mantiene una presencia digital mínima y comunicación web poco sofisticada comparada con los frameworks institucionalizados de SEL. Esto crea una brecha de oportunidad significativa."</p>
+      <p style="color:rgba(255,255,255,0.5); font-size:12px; margin-bottom:48px; font-style:italic;">— Perplexity Deep Research, análisis de mercado Abril 2026</p>
+
+      <div class="oportunidades-teal-grid">
+        <div class="oportunidad-teal-card">
+          <span class="check-icon">✓</span>
+          <p><strong>SEO blue ocean:</strong> "biodanza escuelas" y "biodanza niños colegios" tienen dificultad BAJA en Chile — casi sin competencia orgánica.</p>
+        </div>
+        <div class="oportunidad-teal-card">
+          <span class="check-icon">✓</span>
+          <p><strong>Metodología única:</strong> Nadie más integra movimiento corporal + vínculo grupal + comunidad completa en un solo programa escolar.</p>
+        </div>
+        <div class="oportunidad-teal-card">
+          <span class="check-icon">✓</span>
+          <p><strong>Gap LATAM:</strong> Las organizaciones líderes son norteamericanas o europeas. Hay un gap cultural enorme que SEC puede ocupar.</p>
+        </div>
+        <div class="oportunidad-teal-card">
+          <span class="check-icon">✓</span>
+          <p><strong>Posicionamiento alcanzable:</strong> Ser "el programa de Biodanza para colegios en Chile" es alcanzable en meses, no años.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECCIÓN 5: LOW-HANGING FRUITS ===== -->
+  <section>
+    <div class="section-container">
+      <span class="section-label">Prioridades</span>
+      <h2>Qué hacer primero</h2>
+      <p style="color:var(--textSecondary); margin-bottom:40px; font-size:16px;">5 acciones ordenadas por impacto/esfuerzo. Las primeras tres se pueden implementar esta semana.</p>
+
+      <div class="fruits-list">
+        <div class="fruit-item">
+          <div class="fruit-emoji">🎯</div>
+          <div class="fruit-body">
+            <h4>Storytelling somático</h4>
+            <p>Reemplazar descripciones abstractas con narrativas de transformación. "Llegué tensa. Salí distinta." funciona mejor que cualquier estadística. El cuerpo que cambia convence más que los datos.</p>
+          </div>
+          <div class="fruit-meta">
+            <span class="badge-impacto">Impacto: alto</span>
+            <span class="badge-esfuerzo">Esfuerzo: bajo</span>
+          </div>
+        </div>
+        <div class="fruit-item">
+          <div class="fruit-emoji">📊</div>
+          <div class="fruit-body">
+            <h4>Resultados específicos</h4>
+            <p>Cambiar "promueve el bienestar" por "85% de docentes reportan mejor clima de aula tras 3 meses". La especificidad construye credibilidad instantánea.</p>
+          </div>
+          <div class="fruit-meta">
+            <span class="badge-impacto">Impacto: alto</span>
+            <span class="badge-esfuerzo">Esfuerzo: bajo</span>
+          </div>
+        </div>
+        <div class="fruit-item">
+          <div class="fruit-emoji">👩‍👩‍👧</div>
+          <div class="fruit-body">
+            <h4>Mostrar a las fundadoras</h4>
+            <p>Las personas compran personas. Amanda y Katherine como caras visibles de la marca — fotos reales, historias reales, trayectorias narradas con orgullo.</p>
+          </div>
+          <div class="fruit-meta">
+            <span class="badge-impacto">Impacto: alto</span>
+            <span class="badge-esfuerzo">Esfuerzo: bajo</span>
+          </div>
+        </div>
+        <div class="fruit-item">
+          <div class="fruit-emoji">🏅</div>
+          <div class="fruit-body">
+            <h4>Credencial AFABI al frente</h4>
+            <p>Es el único sello de legitimidad en el mercado chileno de Biodanza. Usarlo en hero, navbar y footer — no escondido en la sección "Quiénes somos".</p>
+          </div>
+          <div class="fruit-meta">
+            <span class="badge-impacto">Impacto: medio</span>
+            <span class="badge-esfuerzo">Esfuerzo: bajo</span>
+          </div>
+        </div>
+        <div class="fruit-item">
+          <div class="fruit-emoji">📱</div>
+          <div class="fruit-body">
+            <h4>Video corto de demostración</h4>
+            <p>60 segundos de una sesión real vale más que 10 páginas de texto. El movimiento de Biodanza se entiende al verlo, no al leerlo. Un reels bien hecho puede ser la principal fuente de leads.</p>
+          </div>
+          <div class="fruit-meta">
+            <span class="badge-impacto">Impacto: alto</span>
+            <span class="badge-esfuerzo">Esfuerzo: medio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="back-link-bar">
+    <a href="index.html">← Volver al sitio principal</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-dot logo-dot-sm"></span>
+          <span class="logo-text-sm">SOMOS EDUCA CONSCIENTE</span>
+        </a>
+        <p class="footer-tagline">Educación que se siente</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html#propuesta">Propuesta</a>
+        <a href="index.html#programas">Programas</a>
+        <a href="index.html#quienes">Quiénes somos</a>
+        <a href="mailto:contacto@somoseduca.cl">Contacto</a>
+      </nav>
+      <div class="footer-copy">
+        <p>© 2025 Somos Educa Consciente · somoseduca.cl · Respaldado por AFABI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
